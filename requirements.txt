@@ -5,6 +5,5 @@ pymongo
 pandas
 scikit-learn
 xgboost
-pandas
-scikit-learn
-xgboost
+gunicorn
+python-dotenv

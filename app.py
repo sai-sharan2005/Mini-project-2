@@ -12,13 +12,17 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import LabelEncoder
 from xgboost import XGBClassifier
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
 # 1. Database Setup
 try:
-    client = MongoClient("mongodb://localhost:27017/", serverSelectionTimeoutMS=2000)
+    mongo_uri = os.environ.get("MONGO_URI", "mongodb://localhost:27017/")
+    client = MongoClient(mongo_uri, serverSelectionTimeoutMS=2000)
     client.admin.command('ping')
     db = client['mvsr_hospital']
     patients_collection = db['patients']
