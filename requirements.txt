@@ -1,0 +1,10 @@
+flask
+flask-cors
+spacy
+pymongo
+pandas
+scikit-learn
+xgboost
+pandas
+scikit-learn
+xgboost
